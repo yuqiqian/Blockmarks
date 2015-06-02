@@ -49,6 +49,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-form (3.0.0)
+      actionpack (> 3.2)
+      railties (> 3.2)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -358,6 +361,7 @@ DEPENDENCIES
   BlueCloth
   better_errors
   binding_of_caller
+  bootstrap-form
   bootstrap-sass
   capybara
   carrierwave

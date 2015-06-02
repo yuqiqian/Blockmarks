@@ -58,6 +58,8 @@ end
 
 gem 'bootstrap-sass'
 
+gem 'bootstrap-form'
+
 gem 'pry-rails'
 
 gem 'faker'
