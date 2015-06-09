@@ -3,10 +3,10 @@ class IncomingController < ApplicationController
   skip_before_action :verify_authenticity_token, only:[:create]
 
   def create
-    puts "INCOMING PARAMS HERE: #{params}"
+    
     @user = User.find_by_email(params[:sender])
     @topic = Topic.find_by_title(params[:subject])
-    @url = params["body-plain"]
+    #@url = params["body-plain"]
 
     if @user == nil
       @user = User.new(email: params[:sender], password: Faker::Lorem.characters(8))
