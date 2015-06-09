@@ -1,5 +1,6 @@
 require 'faker'
 
+
  5.times do
    user = User.new(
      name:     Faker::Name.name,
@@ -36,6 +37,25 @@ member = User.new(
 )
 member.skip_confirmation!
 member.save!
+users = User.all
+
+15.times do
+  Topic.create!(
+    user: users.sample,
+    title: Faker::Lorem.sentence
+  )
+end
+topics = Topic.all
+
+50.times do
+  bookmark = Bookmark.create!(
+    topic: topics.sample,
+    url: Faker::Internet.url
+    )
+end
+bookmarks = Bookmark.all
 
 puts "Seed finished"
 puts "#{User.count} users created"
+puts "#{Topic.count} topics created"
+puts "#{Bookmark.count} bookmarks created"

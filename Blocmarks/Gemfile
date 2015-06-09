@@ -100,3 +100,5 @@ gem 'redis', '2.1.1'
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'epic-editor-rails'
+
+gem 'httparty'
