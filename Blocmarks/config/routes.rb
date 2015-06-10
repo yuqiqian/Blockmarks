@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
   
   resources :topics do
-    resources :bookmarks
+    resources :bookmarks do
+      resources :likes, only: [:create, :destroy]
+    end
   end
   post :incoming, to: 'incoming#create'  
   devise_for :users

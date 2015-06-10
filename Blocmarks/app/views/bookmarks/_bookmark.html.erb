@@ -7,7 +7,7 @@
         <h3><%= get_host_without_www(bookmark.url)%></h3>
         <p><%= bookmark.url %></p>
         <p>
-          <%= link_to "like", root_path, class:'btn btn-success'%>
+           <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
           <% if policy(bookmark).destroy? %>
           <%= link_to "delete", [bookmark.topic, bookmark], method: :delete, remote:true, class:'btn btn-danger' %>
           <% end %>
