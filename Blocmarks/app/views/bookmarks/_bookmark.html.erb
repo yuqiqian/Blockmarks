@@ -6,7 +6,13 @@
       <div class="caption">
         <h3><%= get_host_without_www(bookmark.url)%></h3>
         <p><%= bookmark.url %></p>
-        <p><%= link_to "like", root_path, class:'btn btn-success'%></p>
+        <p>
+          <%= link_to "like", root_path, class:'btn btn-success'%>
+          <% if policy(bookmark).destroy? %>
+          <%= link_to "delete", [bookmark.topic, bookmark], method: :delete, remote:true, class:'btn btn-danger' %>
+          <% end %>
+        </p>
+
       </div>
     </div>
   </div>

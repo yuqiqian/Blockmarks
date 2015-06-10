@@ -1,0 +1,6 @@
+<% if @bookmark.valid? %>
+  $('.js-bookmarks').append("<%= escape_javascript(render(@bookmark))%>");
+  $('.new-bookmark').html("<%= escape_javascript(render partial:'bookmarks/form', locals: {topic: @topic, new_bookmark: Bookmark.new})%>");
+<%else%>
+  $('.new-bookmark').html("<%= escape_javascript(render partial:'bookmarks/form', locals: {topic: @topic, new_bookmark: Bookmark.new})%>");
+<% end %>

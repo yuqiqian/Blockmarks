@@ -10,6 +10,15 @@
     <div class='js-bookmarks'>
         <%= render partial:'bookmarks/bookmark', collection:@bookmarks%>
     </div>
+    <% new_bookmark = @topic.bookmarks.new %>
   </div>
 </div>
+<div class = "row">
+      <% if policy(new_bookmark).create? %>
+    <div class= 'new-bookmark'>
+      <%= render partial:'bookmarks/form', locals:{topic: @topic, new_bookmark: new_bookmark}%>
+    </div>
+    <% end %>
+</div>
+
 

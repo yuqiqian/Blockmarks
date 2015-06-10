@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   
-  get 'bookmarks/show'
-
-  get 'bookmarks/new'
-
-  get 'bookmarks/edit'
-
-  resources :topics
+  
+  resources :topics do
+    resources :bookmarks
+  end
   post :incoming, to: 'incoming#create'  
   devise_for :users
   resources :users, only: [:show]
