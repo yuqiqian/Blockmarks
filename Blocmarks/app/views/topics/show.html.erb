@@ -1,2 +1,15 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= @topic.title%></h1>
+      <p>
+    <% if policy(@topic).destroy? %>
+      <%= link_to "Delete Topic", @topic, method: :delete, class:'btn btn-danger', data:{confirm:'Are you sure to delete this topic?' }%>
+    <% end %>
+  </p>
+
+    <div class='js-bookmarks'>
+        <%= render partial:'bookmarks/bookmark', collection:@bookmarks%>
+    </div>
+  </div>
+</div>
+

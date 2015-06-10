@@ -4,9 +4,12 @@
     <% @topics.each do |topic| %> 
     <div class="media"> 
       <div class="media-body"> 
-        <h4 class="media-heading"> 
+        <h4 class="media-heading" > 
           <%= link_to topic.title, topic %> 
         </h4> 
+        <div id="js-topic">
+          <%= render partial:'bookmarks/bookmark', collection:@bookmarks%>
+        </div>
       </div> 
     </div> 
     <% end %> 
