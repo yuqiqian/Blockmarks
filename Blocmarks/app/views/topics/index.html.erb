@@ -7,18 +7,13 @@
   </small>
 </h1> 
 <div class="row"> 
-  <div class="col-md-8"> 
+  <div class="col-md-12"> 
     <% @topics.each do |topic| %> 
-    <div class="media"> 
-      <div class="media-body"> 
-        <h4 class="media-heading" > 
-          <%= link_to topic.title, topic %> 
-        </h4> 
-        <div id="js-topic">
-          <%= render partial:'bookmarks/bookmark', collection:@bookmarks%>
-        </div>
-      </div> 
-    </div> 
+      <h2 style="margin-top:50px, alignment-baseline:bottom"><%= link_to topic.title, topic %></h2> 
+      <hr class="divider"></hr>
+      <div class="row">
+        <%= render partial:'bookmarks/bookmark', collection:topic.bookmarks%>  
+      </div>
     <% end %> 
   </div> 
 </div>

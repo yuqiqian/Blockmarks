@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  include ApplicationHelper
   def show
   end
 
@@ -12,6 +13,7 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @user = current_user
     @bookmark = @topic.bookmarks.build(params.require(:bookmark).permit(:url))
+    @bookmark.image = get_embed_image(@bookmark.url)
     authorize @bookmark
 
     if @bookmark.save

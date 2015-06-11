@@ -19,4 +19,18 @@ module ApplicationHelper
     host = URI.parse(url).host.downcase
     host.start_with?('www.') ? host[4..-1] : host
   end
+
+  def get_embed_image(url)
+    require 'embedly'
+    require 'json'
+    embedly_api = Embedly::API.new :key => ENV['EMBEDLY_KEY'], :user_agent => 'Mozilla/5.0 (compatible; Blocmarks-yuqi/1.0; yuqi.qian@outlook.com)'
+    obj = embedly_api.extract :url => url
+    temp_json = JSON.pretty_generate(obj[0].marshal_dump)
+    dict = JSON.load(temp_json)
+    if dict!=nil && dict["images"]!=nil && dict["images"][0] != nil
+      return image = dict["images"][0]["url"]
+    else
+      return false
+    end
+  end
 end
