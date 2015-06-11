@@ -3,8 +3,8 @@ class IncomingController < ApplicationController
   skip_before_action :verify_authenticity_token, only:[:create]
 
   def create
-    email = params[:envelope][:sender]
-    subject = params[:message][:headers][:subject]
+    email = params[:sender]
+    subject = params[:subject]
     @user = User.find_by_email(email)
     @topic = Topic.find_by_title(subject)
     #@url = params["body-plain"]
