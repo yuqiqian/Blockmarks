@@ -27,7 +27,7 @@ module ApplicationHelper
     obj = embedly_api.extract :url => url
     temp_json = JSON.pretty_generate(obj[0].marshal_dump)
     dict = JSON.load(temp_json)
-    if dict!=nil && dict["images"]!=nil && dict["images"][0] != nil
+    if dict!=nil && dict["images"]!=nil && dict["images"][0] != nil && dict["images"][0]["url"] != "f"
       return image = dict["images"][0]["url"]
     else
       return false
